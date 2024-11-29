@@ -1,4 +1,4 @@
-# Bullseye-Shooter-Aiming-Game
+# Star-Shooter-Aiming-Game
 The main objective of our project is to create an interactive aim game where users will practice their shooting accuracy by aiming at bullseyes using their mouse. The game will be simple but engaging, with multiple difficulty levels, varying target sizes, and different bullseye movement patterns to enhance the gaming experience. The user will aim and shoot with their mouse, and the game will track accuracy, providing real-time feedback.
 
 # Tools/System/Software:
