@@ -6,19 +6,25 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerLabel; // text label to display the timer
+    public TextMeshProUGUI gameOverLabel;
     public float timer = 30f; // start the timer at 30 seconds
-
     private void Update()
     {
-        if (timer > 0)
+        // Ensure the timer runs only after the countdown is done and the game isn't over
+        if (TimedTrainer.instance != null && TimedTrainer.instance.countdownDone && !TimedTrainer.gameOver)
         {
-            timer -= Time.deltaTime; // decrement the timer
-            DisplayTime(timer);
-        }
-        else
-        {
-            Trainer.gameOver = true; // set gameOver to true
-            timerLabel.text = "GAME OVER"; // display game-over message
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime; // decrement the timer
+                DisplayTime(timer);
+            }
+            else
+            {
+                // End the game when the timer reaches zero
+                TimedTrainer.gameOver = true;
+                timerLabel.gameObject.SetActive(false); // Hide the timer label
+                gameOverLabel.text = "GAME OVER"; // Display game-over message
+            }
         }
     }
 
